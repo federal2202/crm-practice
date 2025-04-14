@@ -23,6 +23,8 @@ export default function OnboardingRoute(){
         shouldValidate: 'onBlur',
         shouldRevalidate: 'onInput'
     })
+    console.log(fields.fullName)
+    console.log(fields.userName)
     return (
         <div className="min-h-screen w-screen flex items-center justify-center">
             <Card>

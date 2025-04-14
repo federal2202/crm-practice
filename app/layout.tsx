@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from "./api/uploadthing/core";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +38,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <NextSSRPlugin
+            routerConfig={extractRouterConfig(ourFileRouter)}
+            />
             {children}
           </ThemeProvider>
       </body>
